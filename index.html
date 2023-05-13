@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Encriptador y desencriptador de texto">
+        <meta name="viewport" content="width=device-width"> 
+        <title>Encriptador de texto</title>
+         <link rel="stylesheet" href="reset.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <img class="logo" src="sources/img/Logologo.png" title="logo alura"alt="logo de encriptador">
+        </header>
+
+        <main>
+            <section class="contenedor-texto-ingresado">
+                <label for="texto-ingresado">Ingresa el texto aquí:</label>
+                <textarea id="textoIngresado" class="texto-ingresado" placeholder="Ingrese el texto aqui" aria-label="Campo de texto para ingresar texto" spellcheck="false"></textarea>
+                <div class="contenedor">
+                    <img src="sources/img/exclamacion.png" alt="símbolo de exclamación" title="simbolo de exclamación"><p>Solo letras minusculas y sin acentos</p>
+                </div>
+                <div class="contenedor-botones">
+                    <button id="botonEncriptar" class="boton boton-encriptar" type="button" aria-label="Encriptar texto">Encriptar</button>
+                    <button id="botonDesencriptar"class="boton boton-desencriptar" type="button" aria-label="Desencriptar texto">Desencriptar</button>
+                    <button id="botonCopiar" class="boton boton-copiar" type="button" aria-label="Copia texto mostrado">Copiar</button>
+                    
+                </div> 
+            </section>
+            <section class="contenedor-texto-mostrado">
+                <label for="texto-mostrado">Texto encriptado/desencriptado:</label>
+                <textarea id="textoMostrado"class="texto-mostrado" cols="70" rows="10" spellcheck="false" readonly></textarea>
+                <div id="elementosMostrados" class="elementos-mostrados">
+                    <img src="sources/img/Muneco.png" alt="personaje con lupa que busca mensajes" title="personaje buscando">
+                    <p class="p1-elementos-mostrados">Ningún mensaje fue encontrado</p>
+                    <p class="p2-elementos-mostrados">Ingresa el texto que desees encriptar o desencriptar</p>
+                </div>
+                
+            </section> 
+        </main>
+        <footer>
+            Desarrollado por Andres Felipe Betancourt Rios
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
+
