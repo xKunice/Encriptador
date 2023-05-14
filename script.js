@@ -102,4 +102,11 @@ document.addEventListener("DOMContentLoaded", function(event){
         elementosMostrados.style.display = "none";
     });
 });
- 
+//sin tildes y mayusculas
+const textarea = document.getElementById("textoIngresado");
+
+textarea.addEventListener("input", function() {
+  let value = this.value.toLowerCase(); 
+  value = value.replace(/[áéíóú]/g, ""); 
+  this.value = value;
+});

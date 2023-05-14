@@ -3,7 +3,7 @@
     --color-fondo:rgb(243, 245, 252);
   }
   
-body{
+  body{
     background: var(--color-fondo);
 }
 .logo{
@@ -23,9 +23,9 @@ body{
 }
 
 .texto-ingresado{
-    width: 680px;
+    width: 640px;
     height: 643px;
-/*margin: 80px 183px 10px 240px;*/
+
     position: absolute;
     top: 168px;
     left: 240px;
@@ -85,13 +85,6 @@ body{
     margin-left: 20px;
 
 }
-/*
-p{
-    display: inline-block;
-    color: #495057; 
-}
-*/
-
 
 .contenedor-botones{
     position: absolute;
@@ -154,7 +147,7 @@ p{
     position: absolute;
     left: 1032px;
     top: 885px;
-    z-index: 4; 
+    z-index: 6; 
 
     position: absolute;
     width: 336px;
@@ -193,7 +186,7 @@ p{
     text-align:center;
     font-size: 24px;
     font-family: 'Inter', sans-serif;
-    color: var(--color-primario);
+    color: #495057;
 }
 
 .elementos-mostrados img{
@@ -236,5 +229,4 @@ p{
 
 label{
     display: none;
-  }
-
+}
