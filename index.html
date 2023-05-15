@@ -15,14 +15,24 @@
 
     <body>
         <header>
-            <img class="logo" src="sources/img/Logologo.png" title="logo alura"alt="logo de encriptador">
+            <div class="contenedor-logo">
+                <img class="logo" src="sources/img/Logologo.png" title="logo alura"alt="logo de encriptador">
+            </div>
+            <div class="contenedor-social">
+                <ul>
+                    <li>linkedin</li>
+                    <li>github</li>
+                </ul>
+            </div>
         </header>
 
         <main>
+
             <section class="contenedor-texto-ingresado">
+
                 <label for="texto-ingresado">Ingresa el texto aquí:</label>
                 <textarea id="textoIngresado" class="texto-ingresado" placeholder="Ingrese el texto aqui" aria-label="Campo de texto para ingresar texto" spellcheck="false"></textarea>
-                <div class="contenedor">
+                <div class="contenedor-advertencia">
                     <div class="contenedor-img">
                         <img src="sources/img/exclamacion.png" alt="símbolo de exclamación" title="simbolo de exclamación">
                     </div>
@@ -32,18 +42,20 @@
                     <button id="botonEncriptar" class="boton boton-encriptar" type="button" aria-label="Encriptar texto">Encriptar</button>
                     <button id="botonDesencriptar"class="boton boton-desencriptar" type="button" aria-label="Desencriptar texto">Desencriptar</button>
                  </div> 
-                 <button id="botonCopiar" class="boton boton-copiar" type="button" aria-label="Copia texto mostrado">Copiar</button>
-            </section>
+              </section>
+
             <section class="contenedor-texto-mostrado">
+                
                 <label for="texto-mostrado">Texto encriptado/desencriptado:</label>
                 <textarea id="textoMostrado"class="texto-mostrado" spellcheck="false" readonly></textarea>
                 <div id="elementosMostrados" class="elementos-mostrados">
                     <img src="sources/img/Muneco.png" alt="personaje con lupa que busca mensajes" title="personaje buscando">
                     <p class="p1-elementos-mostrados">Ningún mensaje fue encontrado</p>
-                    <p class="p2-elementos-mostrados">Ingresa el texto que desees encriptar o desencriptar</p>
-                    
-                </div>    
+                    <p class="p2-elementos-mostrados">Ingresa el texto que desees encriptar o desencriptar</p>    
+                </div>
+                <button id="botonCopiar" class="boton boton-copiar" type="button" aria-label="Copia texto mostrado">Copiar</button>
             </section> 
+
         </main>
         <script src="script.js"></script>
     </body>
