@@ -45,15 +45,17 @@
               </section>
 
             <section class="contenedor-texto-mostrado">
-                
+
                 <label for="texto-mostrado">Texto encriptado/desencriptado:</label>
-                <textarea id="textoMostrado"class="texto-mostrado" spellcheck="false" readonly></textarea>
+                <div id="textoMostradoED" class="texto-mostrado-ed">
+                    <textarea id="textoMostrado"class="texto-mostrado" spellcheck="false" readonly></textarea>
+                    <button id="botonCopiar" class="boton boton-copiar" type="button" aria-label="Copia texto mostrado">Copiar</button>
+                </div>
                 <div id="elementosMostrados" class="elementos-mostrados">
                     <img src="sources/img/Muneco.png" alt="personaje con lupa que busca mensajes" title="personaje buscando">
                     <p class="p1-elementos-mostrados">Ningún mensaje fue encontrado</p>
                     <p class="p2-elementos-mostrados">Ingresa el texto que desees encriptar o desencriptar</p>    
                 </div>
-                <button id="botonCopiar" class="boton boton-copiar" type="button" aria-label="Copia texto mostrado">Copiar</button>
             </section> 
 
         </main>

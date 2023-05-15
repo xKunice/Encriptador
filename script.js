@@ -95,11 +95,30 @@ document.addEventListener("DOMContentLoaded", function(event){
 });
 
 document.addEventListener("DOMContentLoaded", function(event){
+    const textoMostradoED = document.getElementById('textoMostradoED');
+    const botonEncriptar = document.getElementById('botonEncriptar');
+
+    botonEncriptar.addEventListener("click", function(){
+        textoMostradoED.style.display = "flex";
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function(event){
     const elementosMostrados = document.getElementById('elementosMostrados');
     const botonDesencriptar = document.getElementById('botonDesencriptar');
 
     botonDesencriptar.addEventListener("click", function(){
         elementosMostrados.style.display = "none";
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function(event){
+    const textoMostradoED = document.getElementById('textoMostradoED');
+    const botonDesencriptar = document.getElementById('botonDesencriptar');
+
+    botonDesencriptar.addEventListener("click", function(){
+        textoMostradoED.style.display = "flex";
     });
 });
 //sin tildes y mayusculas
