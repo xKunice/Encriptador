@@ -29,7 +29,7 @@ const encriptarTexto = () => {
     if (textoOriginal) {
       const textoMostrado = document.getElementById("textoMostrado");
       const encriptarPalabras = textoOriginal.value.split(" ").map(palabra => encriptarPalabra(palabra));
-      textoMostrado.value = encriptarPalabras.join(" ");
+      textoMostrado.value = `${encriptarPalabras.join(" ")}`;
     }
 };
 
@@ -38,7 +38,7 @@ const desencriptarTexto = () => {
     if (textoOriginal) {
       const textoMostrado = document.getElementById("textoMostrado");
       const desencriptarPalabras = textoOriginal.value.split(" ").map(palabra => desencriptarPalabra(palabra));
-      textoMostrado.value = desencriptarPalabras.join(" ");
+      textoMostrado.value = `${desencriptarPalabras.join(" ")}`;
     }
 };
 
