@@ -1,44 +1,48 @@
-function encriptarPalabra(palabra) {
-    let palabraEncriptada = palabra.replaceAll("e", "enter");
-    palabraEncriptada = palabraEncriptada.replaceAll("i", "imes");
-    palabraEncriptada = palabraEncriptada.replaceAll("a", "ai");
-    palabraEncriptada = palabraEncriptada.replaceAll("o", "ober");
-    palabraEncriptada = palabraEncriptada.replaceAll("u", "ufat");
+const reemplazos = {
+    e: "enter",
+    i: "imes",
+    a: "ai",
+    o: "ober",
+    u: "ufat"
+};
 
+const encriptarPalabra = palabra => {
+    let palabraEncriptada = palabra;
+    for (const [vocal, reemplazo] of Object.entries(reemplazos)) {
+        const regex = new RegExp(vocal, "g");
+        palabraEncriptada = palabraEncriptada.replaceAll(regex, reemplazo);
+    }
     return palabraEncriptada;
-}
+};
 
-function desencriptarPalabra(palabraEncriptada) {
-    let palabra = palabraEncriptada.replaceAll("enter", "e");
-    palabra = palabra.replaceAll("imes", "i");
-    palabra = palabra.replaceAll("ai", "a");
-    palabra = palabra.replaceAll("ober", "o");
-    palabra = palabra.replaceAll("ufat", "u");
-
+const desencriptarPalabra = palabraEncriptada => {
+    let palabra = palabraEncriptada;
+    for (const [vocal, reemplazo] of Object.entries(reemplazos)) {
+        const regex = new RegExp(reemplazo, "g");
+        palabra = palabra.replaceAll(regex, vocal);
+    }
     return palabra;
-}
+};
 
-function encriptarTexto() {
+const encriptarTexto = () => {
+    const textoOriginal = document.getElementById("textoIngresado");
+    if (textoOriginal) {
+      const textoMostrado = document.getElementById("textoMostrado");
+      const encriptarPalabras = textoOriginal.value.split(" ").map(palabra => encriptarPalabra(palabra));
+      textoMostrado.value = encriptarPalabras.join(" ");
+    }
+};
 
-    let textoIngresado = document.getElementById("textoIngresado").value;
-    let textoMostrado = document.getElementById("textoMostrado");
-    let encriptarPalabras = textoIngresado.split(" ").map(encriptarPalabra);
+const desencriptarTexto = () => {
+    const textoOriginal = document.getElementById("textoIngresado");
+    if (textoOriginal) {
+      const textoMostrado = document.getElementById("textoMostrado");
+      const desencriptarPalabras = textoOriginal.value.split(" ").map(palabra => desencriptarPalabra(palabra));
+      textoMostrado.value = desencriptarPalabras.join(" ");
+    }
+};
 
-    textoMostrado.value = encriptarPalabras.join(" ");
-
-}
-
-function desencriptarTexto(){
-
-    let textoIngresado = document.getElementById("textoIngresado").value;
-    let textoMostrado = document.getElementById("textoMostrado");
-    let desencriptarPalabras = textoIngresado.split(" ").map(desencriptarPalabra);
-
-    textoMostrado.value = desencriptarPalabras.join(" ");
-
-}
-
-function copiarTextoMostrado(){
+const copiarTextoMostrado = () => {
     const textoMostrado = document.getElementById('textoMostrado');
     if (navigator.clipboard) {
       navigator.clipboard.writeText(textoMostrado.value)
@@ -56,76 +60,53 @@ function copiarTextoMostrado(){
       textarea.select();
       document.execCommand('copy');
       document.body.removeChild(textarea);
-      alert('Texto copiado al portapapeles');
+      alert(`Texto copiado al portapapeles`);
     }
 }
 
-function DesaparecerElementos(){
-    let textoMostrado = document.getElementById('textoMostrado');
-    let elementosMostrados = document.getElementById('elementosMostrados');
-
-    textoMostrado.addEventListener("input", function(){
-        elementosMostrados.style.display = "none";
-    });
-
-}
-
 document.addEventListener("DOMContentLoaded", function(event) {
+    //const
+    //textoIngresado
+    const texto = document.getElementById("textoIngresado");
+    //botones
     const botonEncriptar = document.getElementById("botonEncriptar");
-    botonEncriptar.onclick = encriptarTexto;
-});
-
-document.addEventListener("DOMContentLoaded", function(event) {
     const botonDesencriptar = document.getElementById("botonDesencriptar");
-    botonDesencriptar.onclick = desencriptarTexto;
-});
-
-document.addEventListener("DOMContentLoaded", function(event) {
     const botonCopiar = document.getElementById("botonCopiar");
+    //cuadro de texto y boton copiar
+    const textoMostradoED = document.getElementById('textoMostradoED');
+    //Imagen y mensaje 
+    const elementosMostrados = document.getElementById('elementosMostrados');
+    //Encriptar Texto
+    botonEncriptar.addEventListener("click", function() {
+      if (texto) {
+        const textoEncriptado = encriptarTexto(texto.value);
+        document.getElementById("textoEncriptado").value = textoEncriptado;
+      }
+    });
+    //Desencriptar Texto
+    botonDesencriptar.addEventListener("click", function() {
+      const texto = document.getElementById("textoIngresado");
+      if (texto) {
+        const textoDesencriptado = desencriptarTexto(texto.value);
+        document.getElementById("textoDesencriptado").value = textoDesencriptado;
+      }
+    });
+    // Copiar texto
     botonCopiar.onclick = copiarTextoMostrado;
-});
-
-document.addEventListener("DOMContentLoaded", function(event){
-    const elementosMostrados = document.getElementById('elementosMostrados');
-    const botonEncriptar = document.getElementById('botonEncriptar');
-
-    botonEncriptar.addEventListener("click", function(){
-        elementosMostrados.style.display = "none";
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function(event){
-    const textoMostradoED = document.getElementById('textoMostradoED');
-    const botonEncriptar = document.getElementById('botonEncriptar');
-
+    //Mostrar cuadro de texto y boton escondidos
     botonEncriptar.addEventListener("click", function(){
         textoMostradoED.style.display = "flex";
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", function(event){
-    const elementosMostrados = document.getElementById('elementosMostrados');
-    const botonDesencriptar = document.getElementById('botonDesencriptar');
-
-    botonDesencriptar.addEventListener("click", function(){
         elementosMostrados.style.display = "none";
     });
-});
-
-document.addEventListener("DOMContentLoaded", function(event){
-    const textoMostradoED = document.getElementById('textoMostradoED');
-    const botonDesencriptar = document.getElementById('botonDesencriptar');
-
     botonDesencriptar.addEventListener("click", function(){
         textoMostradoED.style.display = "flex";
+        elementosMostrados.style.display = "none";
     });
-});
-//sin tildes y mayusculas
-const textarea = document.getElementById("textoIngresado");
+    //sin tildes y mayusculas
+    texto.addEventListener("input", function() {
+        let value = this.value.toLowerCase(); 
+        value = value.replace(/[áéíóú]/g, ""); 
+        this.value = value;
+      });
 
-textarea.addEventListener("input", function() {
-  let value = this.value.toLowerCase(); 
-  value = value.replace(/[áéíóú]/g, ""); 
-  this.value = value;
 });
