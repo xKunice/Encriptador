@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
     //Desencriptar Texto
     botonDesencriptar.addEventListener("click", function() {
-      const texto = document.getElementById("textoIngresado");
       if (texto) {
         const textoDesencriptado = desencriptarTexto(texto.value);
         document.getElementById("textoDesencriptado").value = textoDesencriptado;
